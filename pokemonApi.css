@@ -1,0 +1,71 @@
+body{
+    background-color: rgb(165, 158, 158);
+}
+
+.pokemonName{
+    color: blue;
+    size: 100px;
+    border-color: black;
+    border-width: 3px;
+    padding-left: 70px;
+    padding-right: 70px;
+    border-style: solid;
+    
+}
+
+.container{
+    position: absolute;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: left;
+   border: black;
+    border-style: solid;
+    border-width: 3px;
+    padding-left: 70px;
+   color: blue;
+    
+}
+
+.pokemonweight{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
+    margin-left: 50%;
+    text-align: right;
+    padding-right: 70px;
+    padding-left: 70px;
+    color: purple;
+}
+ 
+.pokemonname{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 15%;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
+    padding: 0px;
+    position: absolute;
+    text-align: center;
+    color: green;
+}
+
+.pokemontype{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 25%;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
+    text-align:center;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: rgb(49, 121, 121)
+    
+}
+.ONE{
+    
+    margin-right: 300px;
+    text-align: right;
+    font-size: xx-large;
+}
