@@ -3,10 +3,11 @@
 
 
 
- const container = document.querySelector(".container");
+ const container = document.querySelector(".container2");
  let pokemonname = document.querySelector(".pokemonname");
  const pokemontype = document.querySelector(".pokemontype");
-const pokemonweight = document.querySelector(".pokemonweight")
+const pokemonweight = document.querySelector(".pokemonweight");
+const pokemonability = document.querySelector(".pokemonability");
  fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
    .then(response => response.json(), e => {
      console.error(e);
@@ -22,15 +23,21 @@ const pokemonweight = document.querySelector(".pokemonweight")
               let pokemonName = data.name;
                let pokemonType1 = data.types[0].type.name;
                let pokemonWeight = data.weight;
+               let pokemonAbility = data.abilities[0].ability.name;
+               if (data.abilities.length == 2){
+                 var pokemonAbility2 = data.abilities[1].ability.name;
+                }
+                else var pokemonAbility2 = "";
                if (data.types.length == 2) {
                 var pokemonType2 = data.types[1].type.name;
                }
-            else var pokemonType2 = "";
-            pokemontype.innerHTML += `${pokemonType1} Type -------- ${pokemonType2} Type <br>`;
-            container.innerHTML += `Number: ${index+1} <br>`;
-            pokemonweight.innerHTML += `Weight: ${pokemonWeight} lbs <br>`;
-            pokemonname.innerHTML += `Name: ${pokemonName} <br>`;
-            pokemontype.style.color = "green";
+              else var pokemonType2 = "";
+            pokemontype.innerHTML += `${pokemonType1} -- ${pokemonType2} <br>`;
+            container.innerHTML += `${index+1} <br>`;
+            pokemonweight.innerHTML += `${pokemonWeight} lbs <br>`;
+            pokemonname.innerHTML += `${pokemonName} <br>`;
+            pokemonability.innerHTML += `${pokemonAbility} , ${pokemonAbility2} <br>`;
+            
             
                 })
                
@@ -52,40 +59,40 @@ const pokemonweight = document.querySelector(".pokemonweight")
 
    //somewhat works
 
-function pokeSubmit(){
-    var param = document.getElementById("pokeInput").value;
-    var pokeURL = 'https://pokeapi.co/api/v2/pokemon?limit=151' + param;
+// function pokeSubmit(){
+//     var param = document.getElementById("pokeInput").value;
+//     var pokeURL = 'https://pokeapi.co/api/v2/pokemon?limit=151' + param;
 
 
 
-    fetch(pokeURL)
+//     fetch(pokeURL)
     
-    $.getJSON(pokeURL, function(data){
-        console.log(data);
-        console.log(JSON.stringify(data, null, "  "));
-        var pokeID = data.national_id;
-        var pokeName = data.name;
-        var pokeType1 = data.types[0].name;
-        if (data.types.length == 2) {
-            var pokeType2 = data.types[1].name;
-        }
-        else var pokeType2 = null;
+//     $.getJSON(pokeURL, function(data){
+//         console.log(data);
+//         console.log(JSON.stringify(data, null, "  "));
+//         var pokeID = data.national_id;
+//         var pokeName = data.name;
+//         var pokeType1 = data.types[0].name;
+//         if (data.types.length == 2) {
+//             var pokeType2 = data.types[1].name;
+//         }
+//         else var pokeType2 = null;
 
-        var descriptionURI = "http://pokeapi.co" + data.descriptions[0].resource_uri;
+//         var descriptionURI = "http://pokeapi.co" + data.descriptions[0].resource_uri;
 
-        var pokeDescription = "";
+//         var pokeDescription = "";
 
-        $.getJSON(descriptionURI, function(data2) {
-            console.log(data2);
-        }
-        )
-        console.log("Number:", pokeID);
-        console.log("Name; ", pokeName);
-        console.log("Type 1: ", pokeType1);
-        console.log("Type 2: ", pokeType2);
+//         $.getJSON(descriptionURI, function(data2) {
+//             console.log(data2);
+//         }
+//         )
+//         console.log("Number:", pokeID);
+//         console.log("Name; ", pokeName);
+//         console.log("Type 1: ", pokeType1);
+//         console.log("Type 2: ", pokeType2);
     
-    });
-}
+//     });
+// }
 
 
 
